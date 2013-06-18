@@ -1,0 +1,115 @@
+.PC_upload_btn {
+	color: #FFF;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 11px;
+	font-weight: bold;
+	line-height: 27px;
+	padding: 0 8px;
+	margin: 0;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	outline: none;
+	text-align: center;
+	transition: all .218s;
+	-moz-transition: all .218s;
+	-moz-user-select: none;
+	-o-transition: all .218s;
+	-webkit-transition: all .218s;
+	-webkit-user-select: none;
+	display: inline-block;
+	background-color: #D14836;
+	background-image: -webkit-linear-gradient(top,#dd4b39,#d14836);
+	background-image: -moz-linear-gradient(top,#dd4b39,#d14836);
+	background-image: -ms-linear-gradient(top,#dd4b39,#d14836);
+	background-image: -o-linear-gradient(top,#dd4b39,#d14836);
+	background-image: linear-gradient(top,#dd4b39,#d14836);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f5f5f5',EndColorStr='#f1f1f1');
+	border: 1px solid transparent;
+	border-image: initial;
+	border-radius: 2px;
+}
+.PC_upload_btn:hover {
+	background-color: #C53727;
+	background-image: -webkit-linear-gradient(top,#dd4b39,#c53727);
+	background-image: -moz-linear-gradient(top,#dd4b39,#c53727);
+	background-image: -ms-linear-gradient(top,#dd4b39,#c53727);
+	background-image: -o-linear-gradient(top,#dd4b39,#c53727);
+	background-image: linear-gradient(top,#dd4b39,#c53727);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#dd4b39',EndColorStr='#c53727');
+	border: 1px solid #B0281A;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+.PC_upload_btn:active {
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+}
+.PC_upload_btn_browse {
+	position: relative;
+	overflow: hidden;	
+}
+.PC_upload_btn_browse INPUT {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	transform: translate(-300px, 0) scale(4);
+	font-size: 23px;
+	direction: ltr;
+	cursor: pointer;
+}
+.PC_upload_progress {
+	display: none;
+	height:20px;
+	margin-bottom:20px;
+	overflow:hidden;
+	background-color:#f7f7f7;
+	background-image:-moz-linear-gradient(top, #f5f5f5, #f9f9f9);
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#f5f5f5), to(#f9f9f9));
+	background-image:-webkit-linear-gradient(top, #f5f5f5, #f9f9f9);
+	background-image:-o-linear-gradient(top, #f5f5f5, #f9f9f9);
+	background-image:linear-gradient(to bottom, #f5f5f5, #f9f9f9);
+	background-repeat:repeat-x;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px;
+	filter:progid:dximagetransform.microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#fff9f9f9', GradientType=0);
+	-webkit-box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.1);
+	box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.PC_upload_progress .PC_upload_bar {
+	float:left;
+	width:0;
+	height:100%;
+	font-size:12px;
+	color:#ffffff;
+	text-align:center;
+	text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color:#0e90d2;
+	background-image:-moz-linear-gradient(top, #149bdf, #0480be);
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#149bdf), to(#0480be));
+	background-image:-webkit-linear-gradient(top, #149bdf, #0480be);
+	background-image:-o-linear-gradient(top, #149bdf, #0480be);
+	background-image:linear-gradient(to bottom, #149bdf, #0480be);
+	background-repeat:repeat-x;
+	filter:progid:dximagetransform.microsoft.gradient(startColorstr='#ff149bdf', endColorstr='#ff0480be', GradientType=0);
+	-webkit-box-shadow:inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow:inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+	box-shadow:inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	-webkit-transition:width 0.6s ease;
+	-moz-transition:width 0.6s ease;
+	-o-transition:width 0.6s ease;
+	transition:width 0.6s ease;
+}
+.PC_upload_progress .PC_upload_bar+.PC_upload_bar {
+	-webkit-box-shadow:inset 1px 0 0 rgba(0, 0, 0, 0.15),inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow:inset 1px 0 0 rgba(0, 0, 0, 0.15),inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+	box-shadow:inset 1px 0 0 rgba(0, 0, 0, 0.15),inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}

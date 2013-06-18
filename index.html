@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+<!-- Force latest IE rendering engine or ChromeFrame if installed -->
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+<meta charset="utf-8">
+<title>PC Upload</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="./PC_upload.js"></script>
+<script>
+$(document).ready(function() {
+	$("#PC_upload_file").PC_upload({
+		acceptTypes: ["pdf"],
+		forcenom: "",
+		remplace: true,
+		destup: "./files/"
+	});
+});
+</script>
+<link rel="stylesheet" href="./PC_upload.css">
+</head>
+<body>
+<div>
+	<span class="PC_upload_btn PC_upload_btn_browse">
+        <span>Choisissez votre fichier</span>
+        <input type="file" id="PC_upload_file" />
+    </span>
+    
+    <div class="PC_upload_progress">
+        <div class="PC_upload_bar" id="PC_upload_barre"></div >
+        <div class="PC_upload_percent">0%</div >
+    </div>
+</div>
+
+</body> 
+</html>
