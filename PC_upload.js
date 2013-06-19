@@ -10,7 +10,12 @@
 	$.fn.PC_upload = function(params) {		
 		var celui = this;
 		
+		var PCUid = $("*[data-PCUid]").length + 1;
+		$(this).attr("data-PCUid",PCUid);
+		
 		params = $.extend({
+			progress_barre: null,
+			progress_pourcentage: null,
 			url: "./upload.php",
 			forcenom: "",
 			remplace: false,
@@ -19,9 +24,19 @@
 			data: null,
 			acceptTypes : "*",
 			onstart: function() {
-				$(this).parent().fadeOut(500,function() {
-					$(".PC_upload_progress").fadeIn();
-				});
+				var celui = this;
+				$(this).parent(".PC_upload_btn_browse").fadeOut(500);
+				$(this).fadeOut(500);
+				if(params.progress_barre != null) {
+					setTimeout(function() {
+						$(params.progress_barre).fadeIn();
+					}, 500);
+				}
+				if(params.progress_pourcentage != null) {
+					setTimeout(function() {
+						$(params.progress_pourcentage).fadeIn();
+					}, 500);
+				}
 			},
 			onend: function(retour) {
 				var celui = this;
@@ -31,15 +46,28 @@
 					alert(message);
 				}
 				setTimeout(function() {
-						$(".PC_upload_progress").fadeOut(function() {
-						$(celui).parent().fadeIn();				
-					});
+					if(params.progress_barre != null) {
+						$(params.progress_barre).fadeOut(500);
+					}
+					if(params.progress_pourcentage != null) {
+						$(params.progress_pourcentage).fadeOut(500);
+					}
+					setTimeout(function() {
+						$(celui).parent(".PC_upload_btn_browse").fadeIn();	
+						$(celui).fadeIn();	
+					}, 500);
 				}, 1000);
 			},
 			message_erreur_type: "Ce type de fichier n'est pas accepté. Type du fichier {type_file} - types acceptés {accept_type_file}",
 			message_erreur_maxsize: "La taille du fichier trop importante ({size_file}, maximum: {max_size_file})",
 			message_erreur_already: "Le fichier ({name_file} existe déjà)"
 		}, params);
+		
+		if(params.progress_barre != null) {
+			if($(params.progress_barre+" .PC_upload_bar").length == 0) {
+				$(params.progress_barre).prepend("<div class='PC_upload_bar'></div>");
+			}
+		}
 		
 		this.on("change",function() {
 			var file = this.files[0];
@@ -77,11 +105,17 @@
 			
 			xhr.upload.addEventListener("progress", function(e) {
 				var loaded = Math.round((e.loaded / e.total) * 100); // on calcul le pourcentage de progression
-				$('#PC_upload_barre').css("width", loaded+"%");
-				$(".PC_upload_percent").html(loaded+"%");
+				if(params.progress_barre != null) {
+					$(params.progress_barre).find('.PC_upload_bar').css("width", loaded+"%");
+				}
+				if(params.progress_pourcentage != null) {
+					$(params.progress_pourcentage).html(loaded+"%");
+				}
 			});
 			xhr.onload = function(){
-				$('#PC_upload_barre').css("width", "100%");
+				if(params.progress_barre != null) {
+					$(params.progress_barre).find('.PC_upload_bar').css("width", "100%");
+				}
 				$(celui).val("");
 				var retour = this.responseText;
 				retour = $.parseJSON(retour);
