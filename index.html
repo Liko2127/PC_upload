@@ -11,19 +11,22 @@
 $(document).ready(function() {
 	$("#up1").PC_upload({
 		progress_pourcentage: "#progress_percent_up1",
-		acceptTypes: ["pdf"],
-		forcenom: "mytbx.pdf",
-		remplace: true,
-		destup: "../pdf/"
+		destup: "./files/"
 	});
 	
 	$("#up2").PC_upload({
 		progress_barre: "#progress_barre_up2",
 		progress_pourcentage: "#progress_percent_up2",
 		acceptTypes: ["pdf"],
+		destup: "./files/"
+	});
+	
+	$("#up3").PC_upload({
+		progress_barre: "#progress_barre_up3",
+		progress_pourcentage: "#progress_percent_up3",
+		acceptTypes: ["pdf"],
 		forcenom: "mytbxd.pdf",
-		remplace: true,
-		destup: "../pdf/"
+		destup: "./files/"
 	});
 });
 </script>
@@ -37,10 +40,6 @@ html, body {
 .bloc {
 	padding: 20px;
 }
-
-#progress_percent_up1 {
-	display: none;
-}
 </style>
 <link rel="stylesheet" href="./PC_upload.css">
 </head>
@@ -49,7 +48,7 @@ html, body {
 <h1>Exemple #1 - Simple</h1>
 <div class="bloc">
     <input type="file" id="up1" />
-    <div id="progress_percent_up1">0%</div>
+    <div id="progress_percent_up1"></div>
 </div>
 
 <h1>Exemple #2 - Barre de progression + Personnalisation du bouton parcourir</h1>
@@ -59,9 +58,21 @@ html, body {
         <input type="file" id="up2" />
     </span>
     
-    <div class="PC_upload_progress" id="progress_barre_up2">
-        <div class="PC_upload_bar"></div >
-        <div class="PC_upload_percent" id="progress_percent_up2">0%</div >
+    <div class="PC_upload_progress" id="progress_barre_up2"></div>
+    
+    <div id="progress_percent_up2"></div>
+</div>
+
+<h1>Exemple #3 - Barre de progression + Personnalisation du bouton parcourir</h1>
+<div class="bloc">
+	<span class="PC_upload_btn PC_upload_btn_browse">
+        <span>Choisissez votre fichier</span>
+        <input type="file" id="up3" />
+    </span>
+    
+    <div class="PC_upload_progress" id="progress_barre_up3">
+        <div class="PC_upload_bar"></div>
+        <div id="progress_percent_up3"></div>
     </div>
 </div>
 

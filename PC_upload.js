@@ -38,6 +38,9 @@
 					}, 500);
 				}
 			},
+			onprogress: function(retour) {
+				console.log(retour);
+			},
 			onend: function(retour) {
 				var celui = this;
 				var code = retour.code;
@@ -110,6 +113,14 @@
 				}
 				if(params.progress_pourcentage != null) {
 					$(params.progress_pourcentage).html(loaded+"%");
+				}
+				if(typeof params.onprogress == 'function') {
+					var callback = params.onprogress;
+					var retour = {};
+					retour.pourcentage = loaded;
+					retour.envoyees = e.loaded;
+					retour.total = e.total;
+					callback.call(celui,retour);
 				}
 			});
 			xhr.onload = function(){
