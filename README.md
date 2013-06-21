@@ -29,6 +29,8 @@ data: {
 }, // variables envoyées en POST au script serveur
 
 onstart: function() {}, // this représente l'objet définit
+
+onprogress: function(retour) {}, // this représente l'objet définit, retour est un objet - retour.pourcentage : pourcentage de progression (int) - retour.envoyees : octets envoyées (int) - retour.total : taille totale du fichier en octet (int)
 		
 onend: function(retour) {}, // this représente l'objet définit, retour est un objet json - retour.code : 0(erreur), 1 (succès) - retour.message : texte de retour
 		
