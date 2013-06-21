@@ -39,7 +39,7 @@
 				}
 			},
 			onprogress: function(retour) {
-				console.log(retour);
+				
 			},
 			onend: function(retour) {
 				var celui = this;
